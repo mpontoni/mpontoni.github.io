@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Name — IT Support Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f5f4f0;
+    --surface: #ffffff;
+    --text: #1a1a18;
+    --muted: #6b6b67;
+    --accent: #1a4a8a;
+    --accent-light: #e8eef7;
+    --border: rgba(0,0,0,0.1);
+    --tag-green: #e8f3e8;
+    --tag-green-text: #2a5c2a;
+    --tag-amber: #fef3e2;
+    --tag-amber-text: #7a4a0a;
+    --tag-purple: #f0eeff;
+    --tag-purple-text: #3d2d8a;
+    --tag-blue: #e8eef7;
+    --tag-blue-text: #1a4a8a;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* Layout */
+  .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+  /* Nav */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(245,244,240,0.9);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 0;
+  }
+  nav .inner {
+    display: flex; justify-content: space-between; align-items: center;
+    max-width: 720px; margin: 0 auto; padding: 0 24px;
+  }
+  .nav-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 14px; font-weight: 500;
+    color: var(--accent);
+  }
+  .nav-links { display: flex; gap: 24px; }
+  .nav-links a {
+    font-size: 13px; color: var(--muted);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); text-decoration: none; }
+
+  /* Hero */
+  .hero {
+    padding: 72px 0 56px;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px; color: var(--accent);
+    letter-spacing: 0.1em; text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-size: 42px; font-weight: 300;
+    line-height: 1.2; margin-bottom: 16px;
+    letter-spacing: -0.02em;
+  }
+  .hero h1 strong { font-weight: 500; }
+  .hero .bio {
+    font-size: 16px; color: var(--muted);
+    max-width: 480px; line-height: 1.7;
+    margin-bottom: 28px;
+  }
+  .hero-links { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 9px 18px; border-radius: 6px;
+    font-size: 13px; font-weight: 500;
+    transition: all 0.15s; cursor: pointer;
+    border: 1px solid transparent;
+  }
+  .btn-primary {
+    background: var(--accent); color: #fff;
+  }
+  .btn-primary:hover { background: #153d74; text-decoration: none; }
+  .btn-outline {
+    background: transparent; color: var(--text);
+    border-color: var(--border);
+  }
+  .btn-outline:hover { background: var(--surface); text-decoration: none; }
+
+  /* Sections */
+  section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; color: var(--muted);
+    letter-spacing: 0.1em; text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+
+  /* Projects */
+  .projects-grid { display: flex; flex-direction: column; gap: 16px; }
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 22px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .project-card:hover {
+    border-color: rgba(26,74,138,0.3);
+    box-shadow: 0 2px 12px rgba(26,74,138,0.06);
+  }
+  .project-header {
+    display: flex; justify-content: space-between;
+    align-items: flex-start; margin-bottom: 8px;
+  }
+  .project-title { font-weight: 500; font-size: 15px; }
+  .project-link {
+    font-size: 12px; color: var(--accent);
+    font-family: 'DM Mono', monospace;
+  }
+  .project-desc {
+    font-size: 14px; color: var(--muted);
+    line-height: 1.6; margin-bottom: 12px;
+  }
+  .tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tag {
+    font-size: 11px; font-weight: 500;
+    padding: 3px 9px; border-radius: 20px;
+    font-family: 'DM Mono', monospace;
+  }
+  .tag-green { background: var(--tag-green); color: var(--tag-green-text); }
+  .tag-amber { background: var(--tag-amber); color: var(--tag-amber-text); }
+  .tag-purple { background: var(--tag-purple); color: var(--tag-purple-text); }
+  .tag-blue { background: var(--tag-blue); color: var(--tag-blue-text); }
+
+  /* Skills */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+  }
+  .skill-group {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+  .skill-group-title {
+    font-size: 12px; font-weight: 500;
+    color: var(--accent); margin-bottom: 10px;
+    font-family: 'DM Mono', monospace;
+  }
+  .skill-list {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 5px;
+  }
+  .skill-list li {
+    font-size: 13px; color: var(--muted);
+    display: flex; align-items: center; gap: 7px;
+  }
+  .skill-list li::before {
+    content: '';
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.4;
+    flex-shrink: 0;
+  }
+
+  /* About */
+  .about-text {
+    font-size: 15px; color: var(--muted);
+    line-height: 1.8; max-width: 560px;
+  }
+  .about-text + .about-text { margin-top: 16px; }
+
+  /* Contact */
+  .contact-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .contact-row {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 14px;
+  }
+  .contact-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; color: var(--muted);
+    width: 64px; flex-shrink: 0;
+  }
+
+  /* Footer */
+  footer {
+    padding: 28px 0;
+    text-align: center;
+    font-size: 12px; color: var(--muted);
+    font-family: 'DM Mono', monospace;
+  }
+
+  /* Animations */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-eyebrow { animation: fadeUp 0.4s ease both; }
+  .hero h1      { animation: fadeUp 0.4s 0.1s ease both; }
+  .hero .bio    { animation: fadeUp 0.4s 0.2s ease both; }
+  .hero-links   { animation: fadeUp 0.4s 0.3s ease both; }
+
+  @media (max-width: 520px) {
+    .hero h1 { font-size: 30px; }
+    .nav-links { gap: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="inner">
+    <span class="nav-name">your-name.github.io</span>
+    <div class="nav-links">
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <div class="hero">
+    <p class="hero-eyebrow">IT Support Analyst — Windsor, ON</p>
+    <h1>Hi, I'm <strong>Your Name.</strong><br>I solve tech problems<br>for people.</h1>
+    <p class="bio">
+      I'm passionate about helping people get the most out of technology.
+      With a background in IT support and customer service, I enjoy the challenge
+      of diagnosing issues quickly and communicating clearly with non-technical users.
+    </p>
+    <div class="hero-links">
+      <a href="https://github.com/yourusername" class="btn btn-primary" target="_blank">GitHub ↗</a>
+      <a href="resume.pdf" class="btn btn-outline" download>Download Resume</a>
+      <a href="#contact" class="btn btn-outline">Get in Touch</a>
+    </div>
+  </div>
+
+  <section id="projects">
+    <p class="section-label">Projects</p>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-title">Helpdesk Ticket Tracker</span>
+          <a href="https://github.com/yourusername/ticket-tracker" class="project-link" target="_blank">github ↗</a>
+        </div>
+        <p class="project-desc">
+          A command-line app for logging and managing IT support tickets. Uses SQLite to store
+          issues, track status changes, and export summaries. Built to understand the full
+          lifecycle of a helpdesk ticket from intake to closure.
+        </p>
+        <div class="tags">
+          <span class="tag tag-green">Python</span>
+          <span class="tag tag-blue">SQLite</span>
+          <span class="tag tag-blue">CLI</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-title">PC Health Check Script</span>
+          <a href="https://github.com/yourusername/pc-healthcheck" class="project-link" target="_blank">github ↗</a>
+        </div>
+        <p class="project-desc">
+          An automated PowerShell script that checks disk usage, running services, memory
+          consumption, and system uptime — then outputs a plain-English report. Designed for
+          quick triage before escalating tickets.
+        </p>
+        <div class="tags">
+          <span class="tag tag-purple">PowerShell</span>
+          <span class="tag tag-amber">Automation</span>
+          <span class="tag tag-blue">Windows</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-title">This Portfolio Site</span>
+          <a href="https://github.com/yourusername/yourusername.github.io" class="project-link" target="_blank">github ↗</a>
+        </div>
+        <p class="project-desc">
+          Built from scratch with plain HTML and CSS — no frameworks, no build tools.
+          Hosted for free on GitHub Pages. The simplest possible stack that still looks professional.
+        </p>
+        <div class="tags">
+          <span class="tag tag-amber">HTML</span>
+          <span class="tag tag-amber">CSS</span>
+          <span class="tag tag-blue">GitHub Pages</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="skills">
+    <p class="section-label">Skills</p>
+    <div class="skills-grid">
+
+      <div class="skill-group">
+        <p class="skill-group-title">Support</p>
+        <ul class="skill-list">
+          <li>Helpdesk / Service Desk</li>
+          <li>Ticket Management</li>
+          <li>Remote Troubleshooting</li>
+          <li>User Onboarding</li>
+          <li>Escalation Handling</li>
+        </ul>
+      </div>
+
+      <div class="skill-group">
+        <p class="skill-group-title">Technical</p>
+        <ul class="skill-list">
+          <li>Windows 10 / 11</li>
+          <li>Active Directory</li>
+          <li>MS Office 365</li>
+          <li>VPN & Remote Desktop</li>
+          <li>Basic Networking</li>
+        </ul>
+      </div>
+
+      <div class="skill-group">
+        <p class="skill-group-title">Tools & Code</p>
+        <ul class="skill-list">
+          <li>PowerShell scripting</li>
+          <li>Python (beginner)</li>
+          <li>HTML & CSS</li>
+          <li>Git & GitHub</li>
+          <li>ServiceNow / Jira</li>
+        </ul>
+      </div>
+
+      <div class="skill-group">
+        <p class="skill-group-title">Soft Skills</p>
+        <ul class="skill-list">
+          <li>Clear communication</li>
+          <li>Patience & empathy</li>
+          <li>Fast learner</li>
+          <li>Bilingual (EN/FR)</li>
+          <li>Team collaboration</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="about">
+    <p class="section-label">About</p>
+    <p class="about-text">
+      I completed a [Your Program] diploma at [Your College] in [Year], where I developed
+      a foundation in networking, operating systems, and IT support. Since then I've been
+      building hands-on experience through personal projects and [any work/volunteer experience].
+    </p>
+    <p class="about-text">
+      I'm currently looking for a service desk or IT support role in the Windsor area —
+      especially in healthcare IT, where I can combine technical problem-solving with
+      meaningful impact. Outside of tech, I enjoy [a hobby or two — makes you memorable].
+    </p>
+  </section>
+
+  <section id="contact">
+    <p class="section-label">Contact</p>
+    <div class="contact-card">
+      <div class="contact-row">
+        <span class="contact-label">Email</span>
+        <a href="mailto:you@email.com">you@email.com</a>
+      </div>
+      <div class="contact-row">
+        <span class="contact-label">GitHub</span>
+        <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a>
+      </div>
+      <div class="contact-row">
+        <span class="contact-label">LinkedIn</span>
+        <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a>
+      </div>
+      <div class="contact-row">
+        <span class="contact-label">Location</span>
+        <span style="color: var(--muted);">Windsor, ON — open to on-site roles</span>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="container">
+    Built with HTML & CSS · Hosted on GitHub Pages
+  </div>
+</footer>
+
+</body>
+</html>
